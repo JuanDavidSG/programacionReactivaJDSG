@@ -16,6 +16,7 @@ class Order {
         this.product = product;
         this.quantity = quantity;
         this.price = price;
+
     }
 
     // Métodos getter para acceder a los valores del pedido
@@ -109,3 +110,5 @@ public class EjemploEstudiante {
             .timeout(5, TimeUnit.SECONDS); 
     }
 }
+
+//En este codigo utilizo varios operadores clave de RxJava para manejar los flujos de datos. Primero, aplico el operador filter para seleccionar solo los pedidos que coinciden con el producto que estoy procesando. Luego, utilizo el operador map para transformar cada pedido en el total de la venta, multiplicando la cantidad por el precio. Para obtener el total acumulado de las ventas, empleo el operador reduce, que va sumando los valores de las ventas. También uso el operador toList para agrupar los resultados en una lista y flatMapObservable para convertir esa lista en un flujo de elementos individuales, que luego puedo procesar. Además, con subscribeOn, muevo la ejecución al hilo IO para que se maneje de manera eficiente, y con timeout, aseguro que el proceso no se quede colgado demasiado tiempo, proporcionando un valor predeterminado si el tiempo se excede. Todos estos operadores me permiten gestionar de forma eficaz los flujos asíncronos y concurrentes mientras procesaba los pedidos.
